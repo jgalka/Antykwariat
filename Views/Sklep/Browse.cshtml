@@ -1,0 +1,21 @@
+﻿@model Antykwariat.Models.Gatunek
+ 
+@{
+    ViewBag.Title = "Przegląd książek";
+}
+ 
+<div class="genre">
+    <h3><em>@Model.Nazwa</em> Ksiązki</h3>
+ 
+    <ul id="ksiazki-list">
+        @foreach (var ksiazka in Model.Ksiazki)
+        {
+            <li>
+                <a href="@Url.Action("Details", new { id = ksiazka.KsiazkaId })">
+                    <img alt="@ksiazka.Tytul" src="@ksiazka.Okladka" />
+                    <span>@ksiazka.Tytul</span>
+                </a>
+            </li>
+        }
+    </ul>
+</div>

@@ -1,0 +1,20 @@
+﻿@model List<Antykwariat.Models.Ksiazka>
+@{
+    ViewBag.Title = "ANTYKWARIAT";
+}
+<div id="promotion">
+</div>
+
+<h3>PROPOZYCJE</h3>
+
+<ul id="ksiazka-list">
+    @foreach (var ksiazka in Model)
+    {
+        <li><a href="@Url.Action("Details", "Sklep",
+                new { id = ksiazka.KsiazkaId })">
+
+            <img alt="@ksiazka.Tytul" src="@ksiazka.Okladka" />
+            <span>@ksiazka.Tytul</span> </a>
+        </li>
+    }
+</ul>

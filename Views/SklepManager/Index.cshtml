@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Antykwariat.Models.Ksiazka>
+
+@helper Truncate(string input, int length)
+{
+    if (input.Length <= length) {
+        @input
+    } else {
+        @input.Substring(0, length)<text>...</text>
+    }
+}
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("NowyWpis", "NowyWpis")
+</p>
+<table>
+    <tr>
+        <th>
+            Gatunek
+        </th>
+        <th>
+            Autor
+        </th>
+        <th>
+            Tytul
+        </th>
+        <th>
+            Cena
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gatunek.Nazwa)
+        </td>
+        <td>
+            @Truncate(item.Autor.Nazwa, 25)
+        </td>
+        <td>
+            @Truncate(item.Tytul, 25)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cena)
+        </td>
+        <td>
+            @Html.ActionLink("Edytuj", "Edytuj", new { id=item.KsiazkaId }) |
+            @Html.ActionLink("Szczegóły", "Szczegoly", new { id=item.KsiazkaId }) |
+            @Html.ActionLink("Usuń", "Usun", new { id=item.KsiazkaId })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,30 @@
+﻿@model Antykwariat.Models.Ksiazka
+
+@{
+    ViewBag.Title = "Książka - " + Model.Tytul;
+}
+
+<h2>@Model.Tytul</h2>
+
+<p>
+    <img alt="@Model.Tytul" src="@Model.Okladka" />
+</p>
+
+<div id="ksiazka-details">
+    <p>
+        <em>Gatunek:</em>
+        @Model.Gatunek.Nazwa
+    </p>
+    <p>
+        <em>Autor:</em>
+        @Model.Autor.Nazwa
+    </p>
+    <p>
+        <em>Cena:</em>
+        @String.Format("{0:F}", Model.Cena)
+    </p>
+    <p class="button">
+        @Html.ActionLink("Dodaj do koszyka", "AddToCart", 
+        "ShoppingCart", new { id = Model.KsiazkaId }, "")
+    </p>
+</div>

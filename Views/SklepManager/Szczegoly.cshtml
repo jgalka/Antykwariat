@@ -1,0 +1,40 @@
+﻿@model Antykwariat.Models.Ksiazka
+
+@{
+    ViewBag.Title = "Szczegoly";
+}
+
+<h2>Szczegóły</h2>
+
+<fieldset>
+    <legend>Książka</legend>
+
+    <div class="display-label">Gatunek</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Gatunek.Nazwa)
+    </div>
+
+    <div class="display-label">Autor</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Autor.Nazwa)
+    </div>
+
+    <div class="display-label">Tytul</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Tytul)
+    </div>
+
+    <div class="display-label">Cena</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Cena)
+    </div>
+
+    <div class="display-label">Okladka</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Okladka)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edytuj", "Edytuj", new { id=Model.KsiazkaId }) |
+    @Html.ActionLink("Powrót do listy", "Index")
+</p>

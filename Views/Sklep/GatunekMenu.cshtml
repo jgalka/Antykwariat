@@ -1,0 +1,11 @@
+﻿@model IEnumerable<Antykwariat.Models.Gatunek>
+
+<ul id="categories">
+    @foreach (var gatunek in Model)
+    {
+        <li>@Html.ActionLink(gatunek.Nazwa, 
+                "Browse", "Sklep", 
+                new { Gatunek = gatunek.Nazwa }, null)
+        </li>
+    }
+</ul>
